@@ -1,0 +1,97 @@
+generated: '2026-08-05'
+method: searched
+source: https://veir.com/sitemap.md + https://veir.com/.well-known/api-catalog + https://veir.com/robots.txt
+summary: >-
+  VEIR ships no product API. What it does ship is a deliberate agent-facing content layer: a
+  markdown twin of every marketing page, a semantic index at /sitemap.md, an RFC 9727 API
+  catalog pointing at it, and a machine-readable AI usage preference in robots.txt. These are
+  the only cross-cutting conventions the public surface exposes.
+authentication:
+  style: none-required
+  note: >-
+    Every documented surface below is anonymous. An OIDC discovery document exists but its
+    endpoints do not resolve — see authentication/veir-authentication.yml.
+markdown_twins:
+  supported: true
+  convention: append `.md` to a page path to receive that page's full content as text/markdown
+  index: https://veir.com/sitemap.md
+  index_declares: >-
+    "This file is a semantic index of veir.com. It is intended for LLM-assisted navigation and
+    agent discovery. Each entry links to a `.md` endpoint that returns the full page content as
+    markdown."
+  index_entries: 39
+  content_type: text/markdown; charset=utf-8
+  verified:
+  - url: https://veir.com/about.md
+    status: 200
+    content_type: text/markdown
+    bytes: 16673
+  - url: https://veir.com/news.md
+    status: 200
+    content_type: text/markdown
+  coverage_note: >-
+    Only paths listed in /sitemap.md have twins. /technology.md returned 404 ("Page not found")
+    even though https://veir.com/technology/ is a live page, so the twin set is the sitemap set,
+    not the whole site.
+api_catalog:
+  standard: RFC 9727
+  url: https://veir.com/.well-known/api-catalog
+  anchor: https://veir.com/api/markdown
+  service_desc: https://veir.com/sitemap.md
+  service_doc: https://veir.com/sitemap.md
+  defects:
+  - >-
+    The catalog's service-desc and service-doc both point at /sitemap.md, a human/LLM index in
+    markdown. RFC 9727 expects service-desc to be a machine-readable API description (OpenAPI,
+    AsyncAPI); a markdown sitemap does not describe an interface.
+  - >-
+    The anchored endpoint https://veir.com/api/markdown returns 200 text/markdown but ignores its
+    input: /api/markdown?path=/about and /api/markdown?url=/about both returned the byte-identical
+    homepage document (4394 bytes) as the bare /api/markdown. Verified 2026-08-05.
+  - >-
+    robots.txt contains "Disallow: /api/", which disallows the very endpoint the site's own
+    api-catalog advertises as its service anchor.
+ai_usage_preference:
+  source: https://veir.com/robots.txt
+  directive: 'Content-Signal: ai-train=no, search=yes, ai-input=no'
+  parsed:
+    ai-train: false
+    search: true
+    ai-input: false
+  tension: >-
+    ai-input=no asks that page content not be used as input to generative AI responses, while
+    /sitemap.md states the markdown endpoints exist "for LLM-assisted navigation and agent
+    discovery". The two signals point in opposite directions; recorded as published, not resolved.
+pagination:
+  supported: false
+idempotency:
+  supported: false
+  note: No write surface exists, so there is no idempotency contract to record.
+versioning:
+  scheme: none-published
+rate_limiting:
+  documented: false
+  signalled_headers: []
+error_envelope:
+  format: html
+  note: Unknown paths return a Next.js HTML 404; /technology.md returned a text/plain "Page not found".
+request_tracing:
+  header: null
+related:
+  - well-known/veir-well-known.yml
+  - authentication/veir-authentication.yml
+  - conformance/veir-conformance.yml
+  - security/veir-domain-security.yml
+x-evidence:
+  fetched: '2026-08-05'
+  probes:
+  - url: https://veir.com/sitemap.md
+    status: 200
+  - url: https://veir.com/api/markdown
+    status: 200
+  - url: https://veir.com/about.md
+    status: 200
+  - url: https://veir.com/technology.md
+    status: 404
+  - url: https://veir.com/robots.txt
+    status: 200

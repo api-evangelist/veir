@@ -1,0 +1,60 @@
+generated: '2026-08-05'
+method: searched
+source: https://veir.com/.well-known/openid-configuration
+docs: null
+summary:
+  types: [openIdConnect, oauth2]
+  api_key_in: []
+  oauth2_flows: [authorizationCode, clientCredentials]
+  status: advertised-but-unresolvable
+schemes:
+- name: OpenIDConnect
+  type: openIdConnect
+  openIdConnectUrl: https://veir.com/.well-known/openid-configuration
+  issuer: https://veir.com
+  id_token_signing_alg_values_supported: [RS256]
+  subject_types_supported: [public]
+  response_types_supported: [code]
+  sources: [well-known/veir-openid-configuration.json]
+- name: OAuth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://veir.com/oauth/authorize
+    tokenUrl: https://veir.com/oauth/token
+    scopes:
+      openid: OpenID Connect subject identifier
+      profile: Basic profile claims
+      read: Read access
+  - flow: clientCredentials
+    tokenUrl: https://veir.com/oauth/token
+    scopes:
+      read: Read access
+  sources: [well-known/veir-openid-configuration.json]
+protected_resource:
+  source: well-known/veir-oauth-protected-resource.json
+  resource: https://veir.com
+  authorization_servers: [https://veir.com]
+  scopes_supported: [openid, profile, read]
+caveats:
+- >-
+  VEIR publishes a syntactically valid OIDC discovery document, but none of the endpoints it
+  advertises resolve. Probed 2026-08-05: /oauth/authorize returned 404, /oauth/token returned
+  404, and the advertised jwks_uri /.well-known/jwks.json returned 404. The metadata is
+  present; the authorization server behind it is not reachable anonymously.
+- >-
+  No developer registration, client-credential issuance, or token documentation was found
+  anywhere on veir.com. Nothing on the public site explains what these scopes grant access to.
+x-evidence:
+  fetched: '2026-08-05'
+  probes:
+  - url: https://veir.com/.well-known/openid-configuration
+    status: 200
+  - url: https://veir.com/.well-known/oauth-protected-resource
+    status: 200
+  - url: https://veir.com/oauth/authorize
+    status: 404
+  - url: https://veir.com/oauth/token
+    status: 404
+  - url: https://veir.com/.well-known/jwks.json
+    status: 404

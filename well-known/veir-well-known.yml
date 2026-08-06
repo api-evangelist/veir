@@ -1,0 +1,59 @@
+generated: '2026-08-05'
+method: searched
+source: https://veir.com/.well-known/
+host: https://veir.com
+notes: >-
+  veir.com is a Next.js marketing site that answers every unknown path with a 200-shell-less
+  HTML 404. Two control paths (/.well-known/bogus-kinlane-test and
+  /.well-known/openid-configuration-xyz) both returned HTTP 404 with an HTML body, so the
+  200 JSON responses recorded below are genuine documents rather than an SPA catch-all.
+documents:
+- path: /.well-known/api-catalog
+  standard: RFC 9727
+  status: 200
+  content_type: application/linkset+json
+  file: veir-api-catalog.json
+- path: /.well-known/openid-configuration
+  standard: OpenID Connect Discovery 1.0
+  status: 200
+  content_type: application/json
+  file: veir-openid-configuration.json
+- path: /.well-known/oauth-protected-resource
+  standard: RFC 9728
+  status: 200
+  content_type: application/json
+  file: veir-oauth-protected-resource.json
+- path: /robots.txt
+  standard: robots.txt + Content Signals
+  status: 200
+  content_type: text/plain
+  file: veir-robots.txt
+- path: /.well-known/security.txt
+  standard: RFC 9116
+  status: 404
+- path: /.well-known/oauth-authorization-server
+  standard: RFC 8414
+  status: 404
+- path: /.well-known/jwks.json
+  standard: RFC 7517
+  status: 404
+  note: advertised as jwks_uri by the OIDC discovery document but does not resolve
+- path: /.well-known/agent-card.json
+  standard: A2A 1.0.0
+  status: 404
+- path: /.well-known/agent.json
+  standard: A2A pre-0.3 legacy
+  status: 404
+- path: /.well-known/ai-plugin.json
+  status: 404
+- path: /.well-known/mcp.json
+  status: 404
+x-evidence:
+  fetched: '2026-08-05'
+  control_paths:
+  - url: https://veir.com/.well-known/bogus-kinlane-test
+    status: 404
+    content_type: text/html
+  - url: https://veir.com/.well-known/openid-configuration-xyz
+    status: 404
+    content_type: text/html

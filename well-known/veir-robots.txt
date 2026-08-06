@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /slice-simulator
+Disallow: /video
+Content-Signal: ai-train=no, search=yes, ai-input=no
+
+Sitemap: https://veir.com/sitemap.xml

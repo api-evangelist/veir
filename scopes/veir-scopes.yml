@@ -1,0 +1,36 @@
+generated: '2026-08-05'
+method: searched
+source: https://veir.com/.well-known/openid-configuration
+docs: null
+schemes:
+- name: OpenIDConnect
+  source: well-known/veir-openid-configuration.json
+  issuer: https://veir.com
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://veir.com/oauth/authorize
+    tokenUrl: https://veir.com/oauth/token
+  - flow: clientCredentials
+    tokenUrl: https://veir.com/oauth/token
+scopes:
+- scope: openid
+  description: OpenID Connect subject identifier. Declared in scopes_supported.
+  flows: [authorizationCode]
+  sources: [well-known/veir-openid-configuration.json, well-known/veir-oauth-protected-resource.json]
+- scope: profile
+  description: Basic profile claims. Declared in scopes_supported.
+  flows: [authorizationCode]
+  sources: [well-known/veir-openid-configuration.json, well-known/veir-oauth-protected-resource.json]
+- scope: read
+  description: Read access. Declared in scopes_supported; the resource it reads is not documented publicly.
+  flows: [authorizationCode, clientCredentials]
+  sources: [well-known/veir-openid-configuration.json, well-known/veir-oauth-protected-resource.json]
+caveats:
+- >-
+  These three scopes are the provider's own published scopes_supported values, recorded verbatim.
+  VEIR publishes no scopes/permissions reference page, and the authorization and token endpoints
+  the discovery document names both returned 404 on 2026-08-05, so no scope could be exercised.
+x-evidence:
+  fetched: '2026-08-05'
+  url: https://veir.com/.well-known/openid-configuration
+  http_status: 200
