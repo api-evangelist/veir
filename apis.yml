@@ -12,6 +12,17 @@ description: >-
   deliberate agent-facing content layer on veir.com — a markdown twin of every indexed page, a
   semantic index at /sitemap.md, an RFC 9727 API catalog, OpenID Connect and RFC 9728 OAuth
   protected-resource discovery documents, and a Content-Signal AI usage preference in robots.txt.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://images.prismic.io/veir/ad7Kup1ZCF7ETMhn_veir-og-image.png?auto=format,compress&rect=0,0,1200,630&w=2400&h=1260
 url: https://raw.githubusercontent.com/api-evangelist/veir/refs/heads/main/apis.yml
 x-type: company
