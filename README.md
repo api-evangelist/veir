@@ -64,5 +64,94 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-VEIR is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.hiive.com/securities/veir-stock
+VEIR is a superconducting power delivery company founded in 2019 and headquartered in Woburn, Massachusetts. It builds low- and medium-voltage high-temperature superconducting (HTS) transmission systems that carry five to ten times more power than conventional conductors at the same voltage level, with roughly 90% less resistive line loss, targeted at AI data center campuses, energy producers, utilities and OEMs. Investors include Microsoft's Climate Innovation Fund, National Grid Partners, Breakthrough Energy Ventures, Congruent Ventures, The Engine Ventures, Galvanize Climate Solutions, Piva Capital, Tyche Partners and VXI Capital. VEIR is a hardware company and publishes no product API or developer program, but it does publish a deliberate agent-facing content layer on veir.com — a markdown twin of every indexed page, a semantic index at /sitemap.md, an RFC 9727 API catalog, OpenID Connect and RFC 9728 OAuth protected-resource discovery documents, and a Content-Signal AI usage preference in robots.txt.
+
+**Areas:** Company · Energy · Electricity · Data Center · Infrastructure · Superconductors · Content
+
+## VEIR on APIs.io
+
+Everything profiled for VEIR is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/veir/](https://apis.io/providers/veir/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [VEIR Markdown Content Endpoint](https://apis.io/apis/veir/markdown/) — The single HTTP endpoint VEIR declares in its own RFC 9727 API catalog. It returns veir.com page content as text/markdown for agent consumption. Probed…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Veir Authentication](https://apis.io/security/veir/veir-authentication/)
+- [Veir Domain Security](https://apis.io/security/veir/veir-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Veir Scopes](https://apis.io/scopes/veir/veir-scopes/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://veir.com/)
+- [Support](https://veir.com/contact-us)
+- [Blog](https://veir.com/news)
+- [Terms of service](https://veir.com/suppliertermsandconditions)
+- [Privacy policy](https://veir.com/privacy-policy)
+
+## API Evangelist rating
+
+**Kin Score 21.0** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 0.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 28.6 |
+| Access clarity | 21.1 |
+
+**Agent readiness 4.7** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | yes |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 34.4** — Energy & Utilities
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/veir/](https://apis.io/providers/veir/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for VEIR: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/veir/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
